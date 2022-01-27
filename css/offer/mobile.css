@@ -1,0 +1,9 @@
+.cargo
+{
+    flex-direction: column;
+}
+
+.card
+{
+    width: 55%;
+}

@@ -1,0 +1,31 @@
+main
+{
+    font-size: calc(8px + 0.65vw);
+    position: relative;
+    left: 20px;
+    top: 80px;
+    width: calc(100% - 40px);
+    height: calc(100vh - 100px);
+    background-color: rgb(216, 216, 216);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.contact
+{
+    font-size: 1em;
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.contact > p:nth-child(2) { background-color: rgba(0, 0, 0, 0.05); font-size: 1.45em;}
+
+.contact > p { font-size: 1.3em; }
