@@ -1,3 +1,9 @@
+<?php
+    include_once 'logic/model.php';
+
+    loginUser();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +23,10 @@
         <a href="/">Go to homepage</a>
         <form action="" method="post">
             <label for="">Username:
-                <input type="text" name="user" id="" placeholder="Username">
+                <input type="text" name="login" id="" placeholder="Username" value="">
             </label>
             <label for="">Password:
-                <input type="password" name="pwd" id="" placeholder="Password">
+                <input type="password" name="passwd" id="" placeholder="Password" value="">
             </label>
             <input type="submit" value="Submit">
         </form>

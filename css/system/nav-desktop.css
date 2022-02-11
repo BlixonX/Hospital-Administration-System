@@ -1,0 +1,123 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: gray;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+nav
+{
+    height: 50px;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    width: 100%;
+
+    display: grid;
+    /* grid-template-columns: calc(100vw - 250px) auto; */
+    grid-template-columns: auto 160px;
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.center, .center > div
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;    
+    height: 100%;
+}
+
+.info
+{
+    height: min-content;
+    padding: 15px;
+    background-color: #A0A0A0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info > p {width: 60%; text-align: center;}
+
+.info > h2,.info > p { margin-bottom: 10px; margin-top: 10px;}
+
+#buttons, #user
+{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 250px;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.25);
+    justify-content: space-evenly;
+}
+
+nav > .center:first-child, #buttons
+{
+    width: calc(100% - 25px);
+}
+
+#user
+{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    justify-content: left;
+}
+
+#user > p
+{
+    width: max-content;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+#buttons > button, #user > button
+{
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 0;
+    background-color: transparent;
+}
+
+#user > button
+{
+    position: absolute;
+    right: 10px;
+    background-color: white;
+}
+
+form
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form > input, form > select
+{
+    margin: 2px;
+}
+
+option
+{
+    background-color: white;
+}
