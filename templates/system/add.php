@@ -1,3 +1,6 @@
+<?php
+    if(canAccess(["Nurse", "Doctor"])){
+?>
 <form action="" method="post">
     <input type="text" name="fname" placeholder="First Name" id="">
     <input type="text" name="lname" placeholder="Last Name" id="">
@@ -13,5 +16,6 @@
     <input type="submit" value="Submit">
 </form>
 <?php
+} else kick(true);
 addUser();
 ?>

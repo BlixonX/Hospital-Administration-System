@@ -1,0 +1,40 @@
+body
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 70px;
+    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
+}
+
+input, select
+{
+    text-align: center;
+}
+
+form
+{
+    margin-top: calc(calc(100vh - 70px) / 4);
+}
+
+table
+{
+    position: absolute;
+    top: 50%;
+    height: auto;
+    width: 100%;
+    border: 2px solid black;
+    text-align: center;
+    border-spacing: 0;
+    background-color: white;
+}
+
+th{ border-bottom: 2px solid black; }
+
+tbody > tr:nth-child(odd) { background-color: rgb(200, 200, 200);}
+
+b
+{
+    background-color: #2dd100;
+}

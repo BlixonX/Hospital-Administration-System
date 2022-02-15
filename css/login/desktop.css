@@ -15,6 +15,7 @@ body
 
 .login
 {
+    position: relative;
     width: 630px;
     height: 630px;
     background-color: white;
@@ -52,11 +53,18 @@ input[type=submit]
 
 .login > a
 {
+    top: 10px;
     position: absolute;
-    top: calc(50vh - 310px);
     background-color: rgba(0, 0, 0, 0.2);
     padding: 3px;
     text-decoration: none;
     color: black;
     border: 1px solid black;
+}
+
+p
+{
+    position: absolute;
+    top: 75%;
+    color: red;
 }
