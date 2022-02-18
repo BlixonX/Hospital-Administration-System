@@ -7,8 +7,7 @@ function addUser(): void
 {
     verifyUser();
     
-    if(getUserByLogin($_SESSION['login'])['Type'] === "Patient")
-        return;
+    if(!canAccess(["Doctor", "Nurse"])) kick(true);
 
     if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['phone']) && isset($_POST['login']) && isset($_POST['passwd']) && isset($_POST['type']))
     {
@@ -27,7 +26,7 @@ function addUser(): void
         global $db;
 
         $check = $db->prepare("SELECT * FROM users WHERE Login = ? ;");
-        $str = $db->real_escape_string($_POST['login']);
+        $str = $db->real_escape_string(str_replace(" ", "", $_POST['login']));
         $check->bind_param("s", $str);
         $check->execute();
         $check->store_result();
@@ -38,12 +37,12 @@ function addUser(): void
         }
         else
         {
-            $fname  = $db->real_escape_string($_POST['fname']);
-            $lname  = $db->real_escape_string($_POST['lname']);
-            $phone  = $db->real_escape_string(trim($_POST['phone']));
-            $login  = $db->real_escape_string($_POST['login']);
+            $fname  = $db->real_escape_string(trim($_POST['fname'], " "));
+            $lname  = $db->real_escape_string(trim($_POST['lname'], " "));
+            $phone  = $db->real_escape_string(str_replace(" ", "", $_POST['phone']));
+            $login  = $db->real_escape_string(str_replace(" ", "", $_POST['login']));
             $type   = $db->real_escape_string($_POST['type']);
-            $passwd = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
+            $passwd = password_hash(str_replace(" ", "", $_POST['passwd']), PASSWORD_DEFAULT);
 
             $insert = $db->prepare("INSERT INTO users (FirstName, LastName, PhoneNumber, Login, Password, Type) VALUES (?, ?, ?, ?, ?, ?);");
             $insert->bind_param("ssssss", $fname, $lname, $phone, $login, $passwd, $type);
@@ -144,8 +143,10 @@ function kick(bool $allow)
 function getData(string $column, string $value)
 {
     verifyUser();
+    if(!canAccess(["Doctor"])) kick(true);
     global $db;
     $value = $db->real_escape_string($value);
+    $column = $db->real_escape_string($column);
     $likeValue = "%" . $value . "%";
     $stmt = $db->prepare("SELECT ID, FirstName, LastName, PhoneNumber, Login, Type FROM users WHERE ".$column." LIKE ?");
     $stmt->bind_param("s", $likeValue);
@@ -161,13 +162,12 @@ function getData(string $column, string $value)
         $stmt->fetch();
         echo "<tr";
         if($res['Type'] == "Nurse")
-            echo ' style="background-color: #aebf2e;"';
+            echo ' class="nurse"';
         else if($res['Type'] == "Doctor")
-            echo ' style="background-color: #0085cc;"';
+            echo ' class="doctor"';
         else if($res['Type'] == "Admin")
-            echo ' style="background-color: #bd5151;"';
+            echo ' class="admin"';
         echo ">";
-            // $data = [$res['ID'],  $res['FirstName'], $res['LastName'], $res['PhoneNumber'], strtolower($res['Login']), $res['Type']];
             echo "<td><p>" . ($column === "ID" ? boldSearched($res['ID'], $value) : $res['ID']) . "</p></td>";
             echo "<td><p>" . ($column === "FirstName" ? boldSearched($res['FirstName'], $value) : $res['FirstName']) . "</p></td>";
             echo "<td><p>" . ($column === "LastName" ? boldSearched($res['LastName'], $value) : $res['LastName']) . "</p></td>";
@@ -175,12 +175,51 @@ function getData(string $column, string $value)
             echo "<td><p>" . strtolower(($column === "Login" ? boldSearched($res['Login'], $value) : $res['Login'])) . "</p></td>";
             echo "<td><p>" . ($column === "Type" ? boldSearched($res['Type'], $value) : $res['Type']) . "</p></td>";
         echo "</tr>";
-        // echo strstr($res['PhoneNumber'], $value, true)."<b>".$value."</b>".substr($res['PhoneNumber'], strlen($value)+strpos($res['PhoneNumber'], $value));
-        // strpos($res['PhoneNumber'], "09")
     }
 }
 
 function boldSearched(string $haystack, string $needle): string
 {
     return strstr($haystack, $needle, true)."<b>".$needle."</b>".substr($haystack, strlen($needle)+strpos($haystack, $needle));
+}
+
+function getUserByColumnAndValue(string $column, string $value): array | NULL
+{
+    verifyUser();
+
+    global $db;
+    $column = $db->real_escape_string($column);
+    $value = "%".$db->real_escape_string($value)."%";
+    $stmt = $db->prepare("SELECT ID, FirstName, LastName, PhoneNumber, Login FROM users WHERE ".$column." LIKE ? LIMIT 1");
+    $stmt->bind_param("s", $value);
+    $stmt->execute();
+    $res = NULL;
+    $stmt->store_result();
+
+    if($stmt->num_rows() == 0)
+        return NULL;
+
+    $stmt->bind_result($res['ID'], $res['FirstName'], $res['LastName'], $res['PhoneNumber'], $res['Login']);
+    $stmt->fetch();
+    return $res;
+}
+
+function removeUser(): void
+{
+    verifyUser();
+    if(!canAccess()) kick(true);
+
+    global $db;
+
+    $column = $db->real_escape_string($_GET['query']);
+    $value = "%".$db->real_escape_string($_GET['value'])."%";
+
+    $stmt = $db->prepare("DELETE FROM users WHERE ".$column." LIKE ? LIMIT 1");
+    $stmt->bind_param("s", $value);
+    $success = $stmt->execute();
+
+    if($success === false)
+        echo $stmt->error;
+    else
+        echo "<p>User removed successfully!</p>";
 }

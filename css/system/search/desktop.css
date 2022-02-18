@@ -38,3 +38,10 @@ b
 {
     background-color: #2dd100;
 }
+
+.admin { background-color: #bd5151; }
+tbody > tr:nth-child(odd).admin { background-color: #a04444;}
+.doctor { background-color: #0085cc; }
+tbody > tr:nth-child(odd).doctor { background-color: #0071ad;}
+.nurse { background-color: #aebf2e; }
+tbody > tr:nth-child(odd).nurse { background-color: #95a327;}
