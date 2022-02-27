@@ -1,7 +1,10 @@
 <?php
-$dbPort = 3306;
+$dbHostname = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
 $dbName = "hospital";
-$db = new mysqli('localhost', 'root', '', $dbName, $dbPort);
+$dbPort = 3306;
+$db = new mysqli($dbHostname, $dbUsername, $dbPassword, $dbName, $dbPort);
 
 function addUser(): void
 {

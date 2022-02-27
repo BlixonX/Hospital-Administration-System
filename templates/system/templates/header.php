@@ -11,7 +11,6 @@
     </style>
 
     <link rel="stylesheet" href="css/system/nav-desktop.css">
-    <link rel="stylesheet" href="css/system/nav-mobile.css" media="(max-width: 630px)">
     <?php
         echo '<link rel="stylesheet" href="css/system/'.$_GET['page'].'/desktop.css">';
         echo '<link rel="stylesheet" href="css/system/'.$_GET['page'].'/mobile.css" media="(max-width: 630px)">';
