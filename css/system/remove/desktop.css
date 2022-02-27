@@ -13,14 +13,54 @@ input, select
     text-align: center;
 }
 
-form:first-of-type
+#form-remove
 {
-    margin-top: calc(calc(100vh - 70px) / 4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
     margin-bottom: calc(25vh / 4);
+    height: 100px;
+    width: 300px;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+#form-remove > *
+{
+    margin: 3px;
 }
 
-form:last-of-type { margin-top: 10px; }
-form:last-of-type > input[type=submit] { width: 400px; height: 40px;}
+input, select, select > option
+{
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+}
+
+input:focus, select:focus
+{
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #DFDFDF;
+}
+
+input[type=submit] { width: 100px; }
+
+#form-confirm 
+{
+    margin-top: 10px;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    width: 400px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#form-confirm > input[type=submit] { width: 300px; height: 40px;}
 
 .user-info
 {
@@ -31,4 +71,14 @@ form:last-of-type > input[type=submit] { width: 400px; height: 40px;}
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+p.info
+{
+    margin-top: 20px;
+    background-color: white;
+    padding: 3px;
+    outline: 2px solid black;
+    color: black;
+    box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.25);
 }

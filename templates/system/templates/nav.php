@@ -1,5 +1,9 @@
+<?php
+$data = getUserByLogin($_SESSION['login']);
+?>
 <body>
     <nav>
+        <?php if($data['Type'] != "Patient"){ ?>
         <div class="center">
             <div id="buttons">
             <?php if(canAccess(["Doctor"])){ ?>
@@ -13,11 +17,9 @@
             <?php } ?>
             </div>
         </div>
+        <?php } else echo "<div></div>";?>
         <div class="center">
             <div id="user">
-                <?php
-                $data = getUserByLogin($_SESSION['login']);
-                ?>
                 <p 
                 <?php 
                 $color = "";

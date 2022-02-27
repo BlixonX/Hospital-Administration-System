@@ -15,19 +15,48 @@ input, select
 
 form
 {
-    margin-top: calc(calc(100vh - 70px) / 4);
+    margin-top: 150px;
+    padding: 10px;
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+input, select, select > option
+{
+    background-color: #EFEFEF;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+input:focus, select:focus
+{
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: #DFDFDF;
+}
+
+input[type=submit] { width: 175px; margin-top: 5px; }
 
 table
 {
     position: absolute;
-    top: 50%;
+    top: 400px;
     height: auto;
     width: 100%;
     border: 2px solid black;
     text-align: center;
     border-spacing: 0;
     background-color: white;
+}
+
+tr
+{
+    height: 45px;
 }
 
 th{ border-bottom: 2px solid black; }
@@ -45,3 +74,4 @@ tbody > tr:nth-child(odd).admin { background-color: #a04444;}
 tbody > tr:nth-child(odd).doctor { background-color: #0071ad;}
 .nurse { background-color: #aebf2e; }
 tbody > tr:nth-child(odd).nurse { background-color: #95a327;}
+

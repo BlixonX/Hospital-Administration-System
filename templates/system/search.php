@@ -12,8 +12,8 @@
             <option value="login">Login</option>
             <option value="type">User Type</option>
         </select>
+        <input type="text" name="value" id="" placeholder="Search value">
     </label>
-    <input type="text" name="value" id="" placeholder="Search value">
     <input type="submit" value="Submit">
 </form>
 <table>

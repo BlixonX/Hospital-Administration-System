@@ -2,7 +2,6 @@ body
 {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
     padding-top: 70px;
     height: calc(100vh - 70px);
@@ -11,19 +10,19 @@ body
 
 form
 {
-    width: 500px;
-    height: 150px;
+    margin-top: 100px;
+    width: 300px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
     background-color: #FFF;
     border-radius: 8px;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
 }
 
-form > input, form > select
+label, input[type=submit], input[name=value]
 {
     margin: 2px;
 }
@@ -37,28 +36,31 @@ input, select, select > option
     text-align: center;
 }
 
+input[type=submit] { width: 100px; }
+
 input:focus, select:focus
 {
     outline: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #DFDFDF;
 }
 
-input[type=submit] { width: 75px; }
-
-p.error
+table
 {
-    color: red;
+    position: absolute;
+    top: 375px;
+    height: auto;
+    width: 100%;
+    border: 2px solid black;
+    text-align: center;
+    border-spacing: 0;
     background-color: white;
-    padding: 3px;
-    outline: 2px solid red;
-    box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.25);
 }
 
-p.info
+tr
 {
-    background-color: white;
-    padding: 3px;
-    outline: 2px solid black;
-    color: black;
-    box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.25);
+    height: 45px;
 }
+
+th{ border-bottom: 2px solid black; }
+
+tbody > tr:nth-child(odd) { background-color: rgb(200, 200, 200);}

@@ -1,1 +1,9 @@
-body { background-color: green;}
+#form-remove
+{
+    height: 150px;
+}
+
+input, select, select > option
+{
+    height: 30px;
+}
