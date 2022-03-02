@@ -21,10 +21,10 @@
         <a href="/">Go to homepage</a>
         <form action="" method="post">
             <label for="">Username:
-                <input type="text" name="login" id="" placeholder="Username" value="blixon">
+                <input type="text" name="login" id="" placeholder="Username" value="">
             </label>
             <label for="">Password:
-                <input type="password" name="passwd" id="" placeholder="Password" value="4701">
+                <input type="password" name="passwd" id="" placeholder="Password" value="">
             </label>
             <input type="submit" value="Submit">
         </form>
