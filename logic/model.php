@@ -231,8 +231,6 @@ function addAppointment(): void
     verifyUser();
     if(!canAccess(["Doctor", "Nurse"])) kick(true);
 
-    if(!canAccess(["Doctor", "Nurse"])) kick(true);
-
     if ($_POST['doctorValue'] == "" || $_POST['patientValue'] == "" || $_POST['date']  == "" || $_POST['start']  == "" || $_POST['end'] == "" || $_POST['title'] == "" )
     {
         echo '<p class="error">Not all fields were filled!</p>';

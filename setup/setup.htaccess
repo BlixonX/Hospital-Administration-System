@@ -4,4 +4,4 @@ RewriteEngine on
 RewriteBase /
 DirectorySlash Off
 RewriteCond %{REQUEST_FILENAME} "^(?!.*\.css$).*$"
-RewriteRule ^.*$ setup.php [NC,L]
+RewriteRule ^.*$ setup/setup.php [NC,L]
