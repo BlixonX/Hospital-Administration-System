@@ -9,7 +9,6 @@
 - [Setup](#bookssetup)
   
   - [Requirements](#gearrequirements)
-  
   - [Configuration](#wrenchconfiguration)
 
 - [Guide](#world_mapguide)
