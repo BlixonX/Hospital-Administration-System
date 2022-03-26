@@ -127,5 +127,43 @@ You can use XAMPP to run this project.
     4. **Patient** - Wants help from doctors. Has only access to appointments. ![](README/PatientNav.png)
   
   - ## Tools
-  
-  > Work in progress
+    
+    This section describes shortly about all the tools that you can access with the navbar.
+    
+    1.**ADD[:heavy_plus_sign:]** is a tool that allows to create new users, as well as add appointments. ![](README/addTool.png)
+    
+    Top part allows to create new user accounts, while bottom let's to add new appointments.
+    
+    2.**Remove[:heavy_minus_sign:]** tool is can remove users. ![](README/removeTool.png)
+    
+    On top you can search user by: **ID**, **Phone number** or **Login**. Middle section lets you see if searched user is the desired one. Bottom is confirmation that you want to remove the user.
+    
+    3.**Appointments[:newspaper:]** is a bit more complex one. ![](README/appointmentsSystemTool.png)
+    
+    The image above is the view from: **Doctor**, **Nurse** and **Admin**. Here you can search all appointment that are going to happen and those that happened already. But this specific view of hospital staff lets to search appointments by Doctors/Patients **ID**, **Phone number** or **Login** as well as the timestamp at which appointments were. If no timestamp is selected, the tool will show appointments for next 7 days (including current day). If only the starting date is selected, then tool will search all appointments from the starting date. If only ending date is selected, then every appointment back from the ending date will be seached. Everyone from the staff can lookup appointments of every registered doctor and patient.
+    
+    ![](README/appointmentsPatientTool.png)
+    
+    This view is from **Patients** perspective. Patient can only see his appointments and not a single thing more. Patient can only search his appointments. Same searching rules applies here. 
+    
+    No dates = 7 days ahead. 
+    
+    Stating date = Everything ahead of start. 
+    
+    End = Everything behind end date.
+    
+    4.**Seach[:mag:]** lets you see all information about registered users, except for password. ![](README/searchTool.png)
+    
+    This tool lets you search users. You can search users by: **ID**, **First name**, **Last name**, **Phone number**, **Login** and **User type**. Users are colored by their role.
+    
+    Admin = RED
+    
+    Doctor = BLUE
+    
+    Nurse = YELLOW
+    
+    Patient = WHITE
+    
+    ![](README/searchToolExample.png)
+    
+    In this example you can see searched users by those with "a" in their names. It also highlights where searched text is in name.
